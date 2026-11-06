@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nebai Ilg Paisajismo</title>
+<meta name="description" content="Diseño de jardines, jardinería y vivero de plantas ornamentales, frutales y nativas en el Valle de Traslasierra, Córdoba.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F5EEE4;
+  --cream-2:#EDE3D4;
+  --paper:#FBF8F3;
+  --green:#1F3B2A;
+  --green-2:#2E5640;
+  --teal:#1D4A44;
+  --sage:#C9CDB6;
+  --gold:#B08D57;
+  --ink:#2A2A26;
+  --muted:#6B6A5E;
+  --line:rgba(31,59,42,.16);
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Montserrat",system-ui,sans-serif;
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+.eyebrow{font-family:var(--sans);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--green);line-height:1.1;margin:0}
+h2{font-size:clamp(2rem,4.2vw,3.1rem);letter-spacing:.04em}
+.rule{display:flex;align-items:center;gap:12px;margin:18px 0 22px;max-width:260px}
+.rule::before,.rule::after{content:"";height:1px;background:var(--gold);flex:1;opacity:.8}
+.rule i{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.center .rule{margin-left:auto;margin-right:auto}
+.center{text-align:center}
+.lead{color:var(--muted);font-size:1.05rem;max-width:620px}
+.center .lead{margin:0 auto}
+section{padding:96px 0}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:500;font-size:.88rem;letter-spacing:.08em;border:1px solid var(--green);transition:.25s;cursor:pointer;font-family:var(--sans)}
+.btn-solid{background:var(--green);color:var(--cream)}
+.btn-solid:hover{background:var(--green-2);border-color:var(--green-2)}
+.btn-ghost{background:transparent;color:var(--green)}
+.btn-ghost:hover{background:var(--green);color:var(--cream)}
+.btn svg{width:18px;height:18px}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:rgba(245,238,228,.92);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.scrolled{border-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand svg{width:58px;height:30px;color:var(--green)}
+.brand .name{font-family:var(--serif);font-size:1.35rem;letter-spacing:.28em;color:var(--green);line-height:1;white-space:nowrap}
+.brand .sub{display:block;font-family:var(--sans);font-size:.55rem;letter-spacing:.42em;color:var(--green);margin-top:4px}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{text-decoration:none;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--green);position:relative}
+.menu a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--gold);transition:.25s}
+.menu a:not(.btn):hover::after{width:100%}
+.menu .btn{padding:10px 20px;font-size:.75rem;color:var(--cream)}
+.burger{display:none;background:none;border:0;padding:8px;color:var(--green);cursor:pointer}
+.burger svg{width:28px;height:28px}
+
+/* Hero */
+.hero{padding:56px 0 96px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,4.6rem);letter-spacing:.02em}
+.hero h1 em{font-style:italic;color:var(--green-2)}
+.hero .lead{margin:6px 0 34px}
+.hero .loc{display:flex;align-items:center;gap:8px;color:var(--green);font-size:.85rem;letter-spacing:.1em;margin-top:28px}
+.hero .loc svg{width:16px;height:16px;color:var(--gold)}
+.ctas{display:flex;gap:14px;flex-wrap:wrap}
+.arch{position:relative;justify-self:center;width:100%;max-width:440px}
+.arch .frame{border-radius:240px 240px 24px 24px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 60px -30px rgba(31,59,42,.45)}
+.arch .frame img{width:100%;height:100%;object-fit:cover}
+.arch .badge{position:absolute;left:-36px;bottom:40px;width:132px;height:132px;border-radius:50%;background:var(--paper);display:grid;place-items:center;box-shadow:0 14px 34px -16px rgba(0,0,0,.35);border:1px solid var(--line)}
+.arch .badge img{width:118px;height:118px;border-radius:50%}
+.arch .tag{position:absolute;right:-14px;top:36px;background:var(--green);color:var(--cream);padding:10px 16px;border-radius:12px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.leaf{position:absolute;color:var(--sage);pointer-events:none}
+
+/* Trio */
+.trio{background:var(--teal);color:var(--cream);padding:44px 0}
+.trio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
+.trio h3{color:var(--cream);font-size:1.6rem;letter-spacing:.3em;text-transform:uppercase;font-weight:400}
+.trio p{margin:8px auto 0;opacity:.8;font-size:.9rem;max-width:280px}
+.trio .ico{width:34px;height:34px;margin:0 auto 12px;color:var(--gold)}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:52px}
+.svc{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:30px 24px;transition:.3s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 22px 40px -28px rgba(31,59,42,.5)}
+.svc .ico{width:46px;height:46px;color:var(--green);margin-bottom:18px}
+.svc h3{font-size:1.4rem;margin-bottom:8px}
+.svc p{margin:0;color:var(--muted);font-size:.9rem}
+.for{margin-top:56px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center}
+.for .label{font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-right:8px}
+.chip{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:8px 16px;font-size:.85rem;color:var(--green)}
+
+/* Process */
+.process{background:var(--cream-2)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:52px;counter-reset:s}
+.step{position:relative;padding-top:56px}
+.step::before{counter-increment:s;content:"0" counter(s);position:absolute;top:0;left:0;font-family:var(--serif);font-size:2.6rem;color:var(--gold);line-height:1}
+.step::after{content:"";position:absolute;top:22px;left:64px;right:-14px;height:1px;background:var(--line)}
+.step:last-child::after{display:none}
+.step h3{font-size:1.45rem;margin-bottom:6px}
+.step p{margin:0;color:var(--muted);font-size:.92rem}
+
+/* Projects */
+.proj-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:22px;margin-top:48px}
+.proj{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--paper);border:1px solid var(--line);cursor:zoom-in;padding:0;text-align:left;font:inherit;color:inherit}
+.proj img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.proj:hover img{transform:scale(1.03)}
+.proj.tall{grid-row:span 2}
+.proj .cap{position:absolute;left:14px;bottom:14px;right:14px;background:rgba(251,248,243,.94);border-radius:12px;padding:12px 16px}
+.proj .cap b{display:block;font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--green)}
+.proj .cap span{font-size:.78rem;color:var(--muted);letter-spacing:.04em}
+.proj.plan{background:#fff}
+.proj.plan img{object-fit:contain;aspect-ratio:3/2}
+
+/* Vivero */
+.vivero{background:var(--paper)}
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:40px 0 28px}
+.tab{border:1px solid var(--green);background:transparent;color:var(--green);padding:11px 24px;border-radius:999px;font-family:var(--sans);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.2s}
+.tab[aria-selected="true"]{background:var(--green);color:var(--cream)}
+.panel[hidden]{display:none}
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:22px}
+.search{position:relative;flex:1;min-width:220px;max-width:360px}
+.search input{width:100%;padding:12px 16px 12px 42px;border-radius:999px;border:1px solid var(--line);background:var(--cream);font:inherit;font-size:.9rem;color:var(--ink)}
+.search input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--muted)}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filter{border:1px solid var(--line);background:var(--cream);border-radius:999px;padding:7px 14px;font-size:.78rem;cursor:pointer;color:var(--green);font-family:var(--sans)}
+.filter.on{background:var(--gold);border-color:var(--gold);color:#fff}
+.price-list{columns:2;column-gap:48px}
+.item{break-inside:avoid;display:flex;align-items:baseline;gap:10px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.item .n{font-family:var(--serif);font-size:1.15rem;color:var(--green);font-weight:500}
+.item .sz{font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:1px 6px;white-space:nowrap}
+.item .dots{flex:1;border-bottom:1px dotted rgba(176,141,87,.6);transform:translateY(-4px);min-width:16px}
+.item .p{font-weight:600;font-size:.92rem;color:var(--ink);white-space:nowrap}
+.item a{color:var(--gold);display:inline-flex}
+.item a svg{width:18px;height:18px}
+.empty{text-align:center;color:var(--muted);padding:30px 0}
+.note{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-top:28px;padding:18px 22px;border-radius:14px;background:var(--cream);font-size:.86rem;color:var(--muted)}
+.note a{color:var(--green);font-weight:500}
+.plants{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.plant{background:var(--cream);border-radius:14px;padding:20px 20px 18px;border:1px solid var(--line)}
+.plant .k{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.plant h3{font-size:1.35rem;margin:6px 0 2px}
+.plant i{font-family:var(--serif);color:var(--muted);font-size:1rem}
+.plant p{margin:10px 0 0;font-size:.86rem;color:var(--muted)}
+.feature{display:grid;grid-template-columns:1fr 1.3fr;gap:36px;align-items:center;margin-bottom:34px}
+.feature img{border-radius:var(--radius);aspect-ratio:5/4;object-fit:cover;width:100%}
+.feature h3{font-size:2rem;margin-bottom:10px}
+.feature p{color:var(--muted);margin:0 0 18px}
+
+/* Tienda */
+.shop-search{display:block;position:relative;max-width:640px;margin:38px auto 18px}
+.shop-search input{width:100%;padding:16px 22px 16px 52px;border-radius:999px;border:1px solid var(--line);background:var(--cream);font:inherit;font-size:1rem;color:var(--ink)}
+.shop-search input:focus{outline:2px solid var(--gold);outline-offset:1px}
+.shop-search svg{position:absolute;left:20px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
+.cats{justify-content:center;margin-bottom:40px}
+.group{margin-bottom:44px}
+.group-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:18px}
+.group-h h3{font-size:1.8rem}
+.group-h span{font-size:.78rem;color:var(--muted);white-space:nowrap}
+.prods{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.prod{background:var(--cream);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:4px}
+.prod .k{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.prod h4{font-family:var(--serif);font-weight:500;font-size:1.25rem;color:var(--green);margin:0;line-height:1.2}
+.prod h4 .sz{font-family:var(--sans);font-size:.68rem;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:1px 6px;margin-left:4px;vertical-align:middle;white-space:nowrap}
+.prod p{margin:0;font-size:.84rem;color:var(--muted);flex:1}
+.buy{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px}
+.price{font-weight:600;font-size:.95rem}
+.price.q{font-weight:500;color:var(--gold);font-size:.82rem}
+.add{border:1px solid var(--green);background:var(--green);color:var(--cream);border-radius:999px;padding:8px 16px;font-family:var(--sans);font-size:.78rem;cursor:pointer;transition:.2s}
+.add:hover{background:var(--green-2)}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--green);border-radius:999px;background:var(--paper)}
+.qty button{width:32px;height:32px;border:0;background:none;color:var(--green);font-size:1.1rem;cursor:pointer;line-height:1}
+.qty span{min-width:20px;text-align:center;font-weight:600;font-size:.9rem}
+.more{display:block;margin:18px auto 0}
+.idea{display:grid;grid-template-columns:.8fr 1.2fr;gap:0;align-items:stretch;margin-top:44px;background:var(--teal);color:var(--cream);border-radius:var(--radius);overflow:hidden}
+.idea img{width:100%;height:100%;object-fit:cover;min-height:220px}
+.idea > div{padding:40px 44px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.idea h3{color:var(--cream);font-size:clamp(1.7rem,3.4vw,2.4rem)}
+.idea p{font-family:var(--serif);font-style:italic;font-size:1.4rem;margin:8px 0 22px;color:var(--sage)}
+.btn-light{background:var(--cream);color:var(--green);border-color:var(--cream)}
+.btn-light:hover{background:#fff}
+.cart-fab{position:fixed;right:20px;bottom:92px;z-index:60;width:58px;height:58px;border-radius:50%;background:var(--green);color:var(--cream);border:0;display:grid;place-items:center;box-shadow:0 12px 26px -8px rgba(0,0,0,.4);cursor:pointer;transition:.2s}
+.cart-fab:hover{transform:scale(1.07)}
+.cart-fab svg{width:26px;height:26px}
+.cart-fab.bump{animation:bump .4s}
+@keyframes bump{50%{transform:scale(1.18)}}
+.badge{position:absolute;top:-2px;right:-2px;min-width:22px;height:22px;border-radius:11px;background:var(--gold);color:#fff;font-size:.72rem;font-weight:600;display:grid;place-items:center;padding:0 6px}
+.badge[hidden]{display:none}
+.scrim{position:fixed;inset:0;background:rgba(20,30,24,.45);z-index:85;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--paper);z-index:90;transform:translateX(100%);transition:transform .35s;display:flex;flex-direction:column;box-shadow:-20px 0 40px -20px rgba(0,0,0,.3)}
+.drawer.open{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.dh h3{font-size:1.7rem}
+.x{background:none;border:0;font-size:2rem;color:var(--green);cursor:pointer;line-height:1}
+.dlist{flex:1;overflow:auto;padding:0 22px}
+.drow{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center;padding:14px 0;border-bottom:1px dashed var(--line)}
+.drow b{font-family:var(--serif);font-weight:500;font-size:1.1rem;color:var(--green);line-height:1.2}
+.drow small{display:block;color:var(--muted);font-size:.76rem}
+.drow .st{text-align:right;font-weight:600;font-size:.88rem}
+.drow .qty{justify-self:start}
+.dempty{text-align:center;color:var(--muted);padding:48px 0}
+.dfoot{padding:18px 22px 20px;border-top:1px solid var(--line);background:var(--cream)}
+.tot{display:flex;justify-content:space-between;align-items:baseline;font-size:.9rem;color:var(--muted)}
+.tot b{font-size:1.3rem;color:var(--ink)}
+.tnote{margin:2px 0 0;font-size:.76rem;color:var(--gold)}
+.dfoot .row2{margin-top:14px}
+.dfoot .field input{background:var(--paper)}
+.btn-wa{width:100%;justify-content:center;background:#25D366;border-color:#25D366;color:#fff;font-weight:600}
+.btn-wa:hover{background:#1ebe5b}
+.btn-wa:disabled{opacity:.5;cursor:not-allowed}
+.clear{display:block;margin:10px auto 0;background:none;border:0;color:var(--muted);font-size:.78rem;text-decoration:underline;cursor:pointer;font-family:var(--sans)}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
+.about .photo{position:relative}
+.about .photo img{border-radius:var(--radius);aspect-ratio:4/5;object-fit:cover;width:100%}
+.about .photo::before{content:"";position:absolute;inset:22px -22px -22px 22px;border:1px solid var(--gold);border-radius:var(--radius);z-index:-1}
+.about blockquote{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--green);margin:26px 0;padding-left:20px;border-left:2px solid var(--gold);line-height:1.3}
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.cred{display:flex;gap:12px;align-items:flex-start;font-size:.88rem;color:var(--muted)}
+.cred svg{flex:none;width:22px;height:22px;color:var(--gold);margin-top:2px}
+.cred b{display:block;color:var(--green);font-weight:600;font-size:.85rem}
+
+/* Contact */
+.contact{background:var(--green);color:var(--cream);position:relative;overflow:hidden}
+.contact h2,.contact h3{color:var(--cream)}
+.contact .lead{color:rgba(245,238,228,.75)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.cinfo{list-style:none;padding:0;margin:34px 0 0;display:grid;gap:18px}
+.cinfo a{display:flex;gap:16px;align-items:center;text-decoration:none}
+.cinfo .circle{width:52px;height:52px;border-radius:50%;background:rgba(245,238,228,.1);display:grid;place-items:center;flex:none;border:1px solid rgba(245,238,228,.2)}
+.cinfo .circle svg{width:22px;height:22px;color:var(--gold)}
+.cinfo small{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;opacity:.65}
+.cinfo span{font-size:1rem}
+form{background:var(--paper);color:var(--ink);border-radius:var(--radius);padding:32px}
+form h3{color:var(--green)!important;font-size:1.7rem;margin-bottom:4px}
+form p.s{margin:0 0 20px;color:var(--muted);font-size:.88rem}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:6px;font-weight:600}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--cream);font:inherit;font-size:.92rem;color:var(--ink)}
+.field textarea{min-height:100px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form .btn{width:100%;justify-content:center;margin-top:6px}
+
+footer{background:var(--cream);padding:48px 0 32px;text-align:center}
+footer .brand{flex-direction:column;gap:10px}
+footer .brand svg{width:150px;height:78px}
+footer .brand .name{font-size:1.9rem;letter-spacing:.34em;margin-right:-.34em}
+footer .tl{font-family:var(--sans);font-size:.72rem;letter-spacing:.32em;color:var(--gold);margin:22px 0 6px;text-transform:uppercase}
+footer .small{font-size:.78rem;color:var(--muted);margin-top:22px}
+
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 12px 26px -8px rgba(0,0,0,.4);transition:.2s}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float svg{width:30px;height:30px}
+
+.lightbox{position:fixed;inset:0;background:rgba(20,30,24,.88);z-index:100;display:none;place-items:center;padding:24px}
+.lightbox.open{display:grid}
+.lightbox img{max-height:88vh;max-width:min(1100px,100%);border-radius:10px;background:#fff}
+.lightbox button{position:absolute;top:16px;right:20px;background:none;border:0;color:#fff;font-size:2.4rem;cursor:pointer;line-height:1}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+@media (max-width:980px){
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .step::after{display:none}
+}
+@media (max-width:860px){
+  section{padding:72px 0}
+  .menu{position:fixed;inset:76px 0 auto 0;background:var(--cream);flex-direction:column;gap:22px;padding:28px 24px 36px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .35s;z-index:-1}
+  .menu.open{transform:none}
+  .burger{display:block}
+  .hero{padding-top:32px}
+  .hero-grid,.about-grid,.contact-grid,.feature{grid-template-columns:1fr;gap:44px}
+  .arch{max-width:360px}
+  .arch .badge{left:-8px;width:104px;height:104px}
+  .arch .badge img{width:92px;height:92px}
+  .arch .tag{right:-4px}
+  .trio-grid{grid-template-columns:1fr;gap:28px}
+  .proj-grid{grid-template-columns:1fr}
+  .proj.tall{grid-row:auto}
+  .price-list{columns:1}
+  .idea{grid-template-columns:1fr}
+  .idea img{max-height:240px}
+  .idea > div{padding:30px 24px}
+  .about .photo{max-width:420px;margin-right:22px}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .services-grid,.steps{grid-template-columns:1fr}
+  .creds,.row2{grid-template-columns:1fr}
+  form{padding:24px 18px}
+  .brand .name{font-size:1.15rem;letter-spacing:.22em}
+  .item .n{font-size:1.05rem}
+  footer .brand .name{font-size:1.5rem;letter-spacing:.26em;margin-right:-.26em}
+}
+</style>
+</head>
+<body>
+
+<!-- Logo mark, reused via <use> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mark" viewBox="0 6 200 104">
+    <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M100 42 a4.5 4.5 0 0 1 9 0 a9 9 0 0 1 -18 0 a13.5 13.5 0 0 1 27 0 a18 18 0 0 1 -36 0 a22.5 22.5 0 0 1 45 0 a27 27 0 0 1 -54 0 a31.5 31.5 0 0 1 63 0 a36 36 0 0 1 -36 36 C86 78 80 86 92 90 C108 96 126 82 146 84 C168 86 180 100 198 100"/>
+      <path d="M2 104 C26 90 46 78 64 80 C80 82 84 94 98 96 C106 97 110 94 106 91"/>
+    </g>
+  </symbol>
+</svg>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Nebai Ilg Paisajismo — inicio">
+      <svg><use href="#mark"/></svg>
+      <span><span class="name">NEBAI ILG</span><span class="sub">PAISAJISMO</span></span>
+    </a>
+    <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="menu" id="menu">
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#tienda">Tienda</a>
+      <a href="#nebai">Sobre mí</a>
+      <a class="btn btn-solid" href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <svg class="leaf" style="right:-40px;top:-30px;width:220px;opacity:.55" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 95 C40 70 60 40 92 8"/><path d="M38 72c-14-2-22-12-22-12s12-6 24 2M50 58c-12-6-16-18-16-18s14-2 22 8M62 44c-8-10-8-22-8-22s12 4 16 16M74 30c-4-10 0-20 0-20s10 8 8 20M44 66c12 2 22-6 22-6s-10-8-22-2M56 52c12-2 20-12 20-12s-12-4-20 4M68 38c10-4 14-14 14-14s-12 0-16 8"/></svg>
+  <div class="wrap hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">Diseño y mantenimiento de jardines</div>
+      <div class="rule"><i></i></div>
+      <h1>Cada jardín tiene una historia.<br><em>Empecemos con la tuya.</em></h1>
+      <p class="lead">Diseñamos, creamos y cuidamos jardines pensados para el clima, el suelo y la luz de las sierras. Plantas ornamentales, frutales y nativas para que tu espacio florezca todo el año.</p>
+      <div class="ctas">
+        <a class="btn btn-solid" href="#contacto">Pedí tu presupuesto</a>
+        <a class="btn btn-ghost" href="#tienda">Ir a la tienda</a>
+      </div>
+      <div class="loc">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        Valle de Traslasierra, Córdoba
+      </div>
+    </div>
+    <div class="arch reveal">
+      <div class="frame"><img src="img/jardin-ukiyo.webp" alt="Cantero con phormium, lavandas, santolinas y agapantos frente a una casa de piedra"></div>
+      <div class="badge"><img src="img/logo.png" alt="Logo Nebai Ilg Paisajismo"></div>
+      <div class="tag">Diseñado para Ukiyo · Mina Clavero</div>
+    </div>
+  </div>
+</section>
+
+<div class="trio">
+  <div class="wrap trio-grid">
+    <div class="reveal">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 20l4-1L19 8l-3-3L5 16l-1 4zM14 7l3 3"/></svg>
+      <h3>Diseñamos</h3><p>Planos de plantación a medida, con especies, cantidades y distancias.</p>
+    </div>
+    <div class="reveal">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21v-9M12 12c0-4 3-7 7-7 0 4-3 7-7 7zM12 14c0-3-2.5-5.5-6-5.5 0 3.5 2.5 5.5 6 5.5zM6 21h12"/></svg>
+      <h3>Creamos</h3><p>Preparación de suelo, plantación, riego y terminaciones en piedra o mulch.</p>
+    </div>
+    <div class="reveal">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 21h10M9 21V11h6v10M5 11h14M12 11V6M9 3c1 2 2 3 3 3s2-1 3-3"/></svg>
+      <h3>Cuidamos</h3><p>Mantenimiento integral para que el jardín crezca sano estación tras estación.</p>
+    </div>
+  </div>
+</div>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">Servicios</div>
+      <div class="rule"><i></i></div>
+      <h2>Jardines con identidad serrana</h2>
+      <p class="lead" style="margin-top:16px">Proyectos de bajo mantenimiento, resistentes al sol y a la sequía, con especies que aportan color, textura y aroma.</p>
+    </div>
+    <div class="services-grid">
+      <article class="svc reveal">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 40h32M14 40V22l10-8 10 8v18M24 14V6M20 9c2 0 4-1 4-3M28 9c-2 0-4-1-4-3"/><path d="M19 40v-8h10v8"/></svg>
+        <h3>Diseño de jardines</h3><p>Relevamiento, propuesta y plano de plantación con vista superior y frontal.</p>
+      </article>
+      <article class="svc reveal">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="24" cy="18" r="4"/><path d="M24 14c0-5 4-8 4-8s4 4 0 8M28 18c5 0 8 4 8 4s-4 4-8 0M24 22c0 5-4 8-4 8s-4-4 0-8M20 18c-5 0-8-4-8-4s4-4 8 0M24 22v20M24 34c-4-4-9-3-9-3s2 5 9 5"/></svg>
+        <h3>Canteros ornamentales</h3><p>Composiciones por estratos —alto, medio y bajo— con floración escalonada.</p>
+      </article>
+      <article class="svc reveal">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M24 16v22M24 18c-4-8-14-10-14-4 0 5 7 7 14 6M24 18c4-8 14-10 14-4 0 5-7 7-14 6M24 22c-4 4-10 10-6 12 3 1 6-4 6-8M24 22c4 4 10 10 6 12-3 1-6-4-6-8M22 12l-3-5M26 12l3-5"/></svg>
+        <h3>Jardines para polinizadores</h3><p>Plantas que atraen abejas, mariposas y picaflores, con foco en nativas.</p>
+      </article>
+      <article class="svc reveal">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 40h36M10 40c-4-6-2-16 6-18 6-2 10 4 10 4s4-8 12-4c6 3 6 12 2 18"/><path d="M18 40V30M30 40V30"/></svg>
+        <h3>Cerco vivo</h3><p>Cercos y borduras que dan privacidad, cortan el viento y suman verde.</p>
+      </article>
+      <article class="svc reveal">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="14" cy="36" rx="8" ry="5"/><ellipse cx="32" cy="38" rx="10" ry="4"/><ellipse cx="28" cy="28" rx="6" ry="4"/><path d="M14 31v-8M14 27c-3-1-5-4-5-4s4-1 5 2M14 25c3-1 5-4 5-4s-4-1-5 2"/></svg>
+        <h3>Rocallas</h3><p>Jardines secos con piedra del lugar, suculentas y gramíneas.</p>
+      </article>
+      <article class="svc reveal">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 36h40M8 36c0-4 3-6 6-6s6 2 6 6M20 36c0-4 3-6 6-6s6 2 6 6M32 36c0-4 3-6 6-6s6 2 6 6"/><circle cx="14" cy="26" r="2"/><circle cx="26" cy="26" r="2"/><circle cx="38" cy="26" r="2"/></svg>
+        <h3>Borduras</h3><p>Bordes prolijos para caminos, galerías y frentes de cabañas.</p>
+      </article>
+      <article class="svc reveal">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M24 42V10M24 14c-4-2-6-6-6-6s5 0 6 4M24 14c4-2 6-6 6-6s-5 0-6 4M24 22c-5-2-8-7-8-7s6 0 8 5M24 22c5-2 8-7 8-7s-6 0-8 5M24 30c-6-2-9-8-9-8s7 0 9 6M24 30c6-2 9-8 9-8s-7 0-9 6"/></svg>
+        <h3>Aromáticas</h3><p>Lavandas, romeros, salvias, tomillos y peperina para jardín y cocina.</p>
+      </article>
+      <article class="svc reveal">
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 40l14-14M20 24l8 8M26 18c4-4 10-6 14-2-2 6-8 8-12 6M18 34l-4 4M30 8c-2 4 0 8 0 8s4-2 4-6"/></svg>
+        <h3>Mantenimiento integral</h3><p>Podas, limpieza, riego, abonado y control sanitario periódico.</p>
+      </article>
+    </div>
+    <div class="for reveal">
+      <span class="label">Proyectos para</span>
+      <span class="chip">Viviendas</span><span class="chip">Cabañas</span><span class="chip">Complejos turísticos</span><span class="chip">Espacios verdes</span><span class="chip">Quintas</span><span class="chip">Restaurantes</span>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow">Cómo trabajamos</div>
+      <div class="rule"><i></i></div>
+      <h2>Del boceto al jardín vivo</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h3>Visita y escucha</h3><p>Recorremos el espacio, medimos y conversamos sobre cómo querés vivirlo.</p></div>
+      <div class="step reveal"><h3>Diseño y plano</h3><p>Te entregamos un plano de plantación con especies, cantidades y estratos.</p></div>
+      <div class="step reveal"><h3>Plantación</h3><p>Preparamos el suelo, plantamos y dejamos el riego de establecimiento.</p></div>
+      <div class="step reveal"><h3>Cuidado</h3><p>Acompañamos el crecimiento con planes de mantenimiento a medida.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <div class="proj-head reveal">
+      <div>
+        <div class="eyebrow">Proyectos</div>
+        <div class="rule"><i></i></div>
+        <h2>Diseñando para Ukiyo, Mina Clavero</h2>
+      </div>
+      <p class="lead" style="max-width:420px;margin:0">Cada proyecto incluye un plano con vista superior, vista frontal, listado de especies y distancias de plantación.</p>
+    </div>
+    <div class="proj-grid">
+      <button class="proj tall reveal" data-full="img/jardin-ukiyo.webp">
+        <img src="img/jardin-ukiyo.webp" alt="Cantero terminado frente al SUM de Ukiyo con iluminación">
+        <div class="cap"><b>Cantero frente SUM — terminado</b><span>Phormium, Dietes, Agapanthus, Lavandula, Santolina, Erigeron</span></div>
+      </button>
+      <button class="proj plan reveal" data-full="img/plano-sum.png">
+        <img src="img/plano-sum.png" alt="Plano de plantación frente SUM, 4,50 m de largo">
+        <div class="cap"><b>Plano de plantación · Frente SUM</b><span>4,50 m × 1,20 m · 6 especies perennes</span></div>
+      </button>
+      <button class="proj plan reveal" data-full="img/plano-cabana.png">
+        <img src="img/plano-cabana.png" alt="Plano de plantación frente ventana cabaña N°1, 3 m de largo">
+        <div class="cap"><b>Plano de plantación · Cabaña N°1</b><span>3,00 m × 1,00 m · 11 ejemplares</span></div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="tienda" class="vivero">
+  <div class="wrap">
+    <div class="center reveal">
+      <div class="eyebrow">Tienda</div>
+      <div class="rule"><i></i></div>
+      <h2>Plantas y servicios</h2>
+      <p class="lead" style="margin-top:16px">Armá tu pedido y finalizalo por WhatsApp. Ornamentales, frutales y nativas adaptadas a Traslasierra, con posibilidad de colocación.</p>
+    </div>
+
+    <label class="shop-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input type="search" id="q" placeholder="Buscar: lavanda, durazno, cantero, poda…" aria-label="Buscar en la tienda">
+    </label>
+    <div class="filters cats" id="cats"></div>
+
+    <div id="shop"></div>
+
+    <div class="note">
+      <span>Precios en pesos, sujetos a cambios. El tamaño indica la capacidad de la maceta. Los ítems “a consultar” se cotizan por WhatsApp.</span>
+      <a href="#" data-full="img/lista-frutales.png">Ver lista de precios de frutales →</a>
+    </div>
+
+    <div class="idea reveal">
+      <img src="img/macetas.webp" alt="Macetas de barro con cactus y suculentas contra una pared ocre">
+      <div>
+        <h3>¿Ya tenés una idea de lo que querés?</h3>
+        <p>Escribime y la hacemos realidad!</p>
+        <a class="btn btn-light" href="https://wa.me/5493544448781?text=Hola%20Nebai!%20Tengo%20una%20idea%20para%20mi%20jard%C3%ADn%3A%20" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.3c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.5z"/></svg>
+          Escribime por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nebai" class="about">
+  <div class="wrap about-grid">
+    <div class="photo reveal"><img src="img/nebai.webp" alt="Nebai Ilg sonriendo bajo un arco de rosas en una huerta"></div>
+    <div class="reveal">
+      <div class="eyebrow">Sobre mí</div>
+      <div class="rule"><i></i></div>
+      <h2>Hola, soy Nebai</h2>
+      <blockquote>“Un jardín no se termina el día que se planta: empieza ahí.”</blockquote>
+      <p>Soy técnica en Diseño de Paisajes y Jardinería, egresada de la Universidad de Merlo, San Luis. Vivo y trabajo en el Valle de Traslasierra, donde diseño jardines que dialogan con las sierras: especies adaptadas al clima, combinaciones por estratos y espacios que se disfrutan todo el año.</p>
+      <p>Acompaño cada proyecto de principio a fin —desde el primer boceto hasta el mantenimiento— para viviendas, cabañas, complejos turísticos y espacios verdes.</p>
+      <div class="creds">
+        <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 9l10-5 10 5-10 5L2 9zM6 11v5c3 2 9 2 12 0v-5"/></svg><div><b>Formación</b>Técnica en Diseño de Paisajes y Jardinería</div></div>
+        <div class="cred"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20l6-10 4 6 3-4 5 8H3z"/></svg><div><b>Zona</b>Mina Clavero, Nono, Villa Cura Brochero, San Javier y todo Traslasierra</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <div class="eyebrow">Contacto</div>
+      <div class="rule"><i></i></div>
+      <h2>Empecemos tu jardín</h2>
+      <p class="lead" style="margin-top:16px">Contame qué espacio tenés y qué te imaginás. Te respondo a la brevedad para coordinar una visita.</p>
+      <ul class="cinfo">
+        <li><a href="https://wa.me/5493544448781" target="_blank" rel="noopener"><span class="circle"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg></span><span><small>Teléfono / WhatsApp</small>3544 448781</span></a></li>
+        <li><a href="mailto:nebai.paisajismo@gmail.com"><span class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Email</small>nebai.paisajismo@gmail.com</span></a></li>
+        <li><a href="https://instagram.com/nebaiilg.paisajismo" target="_blank" rel="noopener"><span class="circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span><span><small>Instagram</small>@nebaiilg.paisajismo</span></a></li>
+      </ul>
+    </div>
+    <form id="form" class="reveal">
+      <h3>Pedí tu presupuesto</h3>
+      <p class="s">Se abre WhatsApp con tu mensaje listo para enviar.</p>
+      <div class="row2">
+        <div class="field"><label for="f-name">Nombre</label><input id="f-name" required autocomplete="name"></div>
+        <div class="field"><label for="f-loc">Localidad</label><input id="f-loc" placeholder="Ej: Nono"></div>
+      </div>
+      <div class="field"><label for="f-svc">Me interesa</label>
+        <select id="f-svc">
+          <option>Diseño de jardín</option><option>Mantenimiento</option><option>Compra de plantas</option><option>Plantas con colocación</option><option>Otro</option>
+        </select>
+      </div>
+      <div class="field"><label for="f-msg">Contame sobre tu espacio</label><textarea id="f-msg" placeholder="Medidas aproximadas, sol o sombra, qué te gustaría…"></textarea></div>
+      <button class="btn btn-solid" type="submit">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.3c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.5z"/></svg>
+        Enviar por WhatsApp
+      </button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Volver arriba">
+      <svg><use href="#mark"/></svg>
+      <span><span class="name">NEBAI ILG</span></span>
+    </a>
+    <div class="rule" style="margin:14px auto 10px"><i></i></div>
+    <div class="eyebrow" style="color:var(--green);letter-spacing:.5em">Paisajismo</div>
+    <p class="tl">Diseñamos · Creamos · Cuidamos</p>
+    <p class="small">Valle de Traslasierra, Córdoba · 3544 448781 · nebai.paisajismo@gmail.com<br>© <span id="y"></span> Nebai Ilg Paisajismo</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5493544448781?text=Hola%20Nebai!%20Quisiera%20consultar%20por%20un%20jard%C3%ADn." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.3c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.5z"/></svg>
+</a>
+
+<button class="cart-fab" id="cartBtn" aria-label="Ver carrito" aria-controls="drawer">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 8H6.2"/><circle cx="9.5" cy="20" r="1.3"/><circle cx="17" cy="20" r="1.3"/></svg>
+  <span class="badge" id="badge" hidden>0</span>
+</button>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Carrito" aria-hidden="true">
+  <div class="dh">
+    <h3>Tu pedido</h3>
+    <button class="x" id="closeCart" aria-label="Cerrar carrito">×</button>
+  </div>
+  <div class="dlist" id="dlist"></div>
+  <div class="dfoot">
+    <div class="tot"><span>Total estimado</span><b id="total">$0</b></div>
+    <p class="tnote" id="tnote" hidden>+ ítems a consultar, que se cotizan por WhatsApp.</p>
+    <div class="row2">
+      <div class="field"><label for="c-name">Nombre</label><input id="c-name" autocomplete="name"></div>
+      <div class="field"><label for="c-loc">Localidad</label><input id="c-loc" placeholder="Ej: Nono"></div>
+    </div>
+    <button class="btn btn-wa" id="checkout">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.3.3c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.7-.1 1.5z"/></svg>
+      Finalizar por WhatsApp
+    </button>
+    <button class="clear" id="clearCart">Vaciar carrito</button>
+  </div>
+</aside>
+
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button aria-label="Cerrar">×</button>
+  <img alt="">
+</div>
+
+<script>
+const WA = "5493544448781";
+
+// [nombre, tamaño, precio, categoría]
+const FRUTALES = [
+  ["Almendro Guara","10L",29700,"Frutos secos"],["Almendro Guara","7L",26580,"Frutos secos"],
+  ["Almendro Non Pareil","15L",31520,"Frutos secos"],["Almendro Non Pareil","7L",26580,"Frutos secos"],
+  ["Arándano","3L",24760,"Otros"],["Caqui","10L",58820,"Otros"],
+  ["Cerezo Lapins","7L",26580,"Carozo"],["Ciruelo Black Amber","10L",24240,"Carozo"],
+  ["Ciruelo Larry Ann","15L",25930,"Carozo"],["Ciruelo Royal Zee","7L",22810,"Carozo"],
+  ["Ciruelo Sungold","7L",22810,"Carozo"],["Damasco Royal","7L",22810,"Carozo"],
+  ["Damasco Royal","10L",25020,"Carozo"],["Durazno Bowen","10L",25020,"Carozo"],
+  ["Durazno Pelón Caldesi 2000","10L",25020,"Carozo"],["Durazno Rich Lady","10L",25020,"Carozo"],
+  ["Guayaba","10L",32040,"Otros"],["Guindo Morello","7L",33990,"Carozo"],
+  ["Higuera Blanca","3L",14880,"Higueras"],["Higuera Blanca","10L",24630,"Higueras"],
+  ["Higuera Blanca","20L",38020,"Higueras"],["Higuera Gota de Miel","15L",38020,"Higueras"],
+  ["Higuera Gota de Miel","3L",14880,"Higueras"],["Higuera Negra","20L",38020,"Higueras"],
+  ["Higuera Roja","15L",38020,"Higueras"],
+  ["Peral Packham Triumph","7L",22810,"Pepita"],["Peral Williams","10L",28270,"Pepita"],
+  ["Peral Williams","7L y 10L",24240,"Pepita"],
+  ["Pomelo Marsh (blanco)","",25150,"Cítricos"],["Pomelo Star Ruby","",25150,"Cítricos"],
+  ["Kinoto Meiwa","",24370,"Cítricos"],["Lima","",25150,"Cítricos"],
+  ["Limonero Sutil (caipiriña)","",25150,"Cítricos"],["Limonero Variegated Pink","",25150,"Cítricos"],
+  ["Mandarino Criollo","",25150,"Cítricos"],["Mandarino Encore","",25150,"Cítricos"],
+  ["Mandarino Murcott","",25150,"Cítricos"],
+  ["Manzano Chañar 90 (rojo)","7L",22810,"Pepita"],["Manzano Granny Smith","15L",28920,"Pepita"],
+  ["Manzano Granny Smith","7L",24110,"Pepita"],["Manzano Red Delicious","7L",24110,"Pepita"],
+  ["Membrillo","7L",28270,"Pepita"],
+  ["Naranjo Lane Late","10L",25150,"Cítricos"],["Naranjo Salustiana (jugo)","",25150,"Cítricos"],
+  ["Naranjo Valencia Late (jugo)","",25150,"Cítricos"],
+  ["Nogal (de semilla)","7L",28790,"Frutos secos"],["Nogal (de semilla)","15L",37890,"Frutos secos"],
+  ["Nogal Pecán (de semilla)","15L",37890,"Frutos secos"],
+  ["Olivo Hojiblanca (fruta)","3L",28010,"Otros"],
+  ["Palta Anisada","3L",18520,"Paltas"],["Palta Criolla","3L",15400,"Paltas"],["Palta Criolla","7L",19170,"Paltas"],
+  ["Papaya","4L",18260,"Otros"],
+  ["Vid Cereza","4L",15660,"Vides"],["Vid Criolla","4L",15660,"Vides"],
+  ["Vid Garnacha de Joanó","4L",15660,"Vides"],["Vid Malvasía","4L",15660,"Vides"],
+  ["Vid Moscatel","4L",15660,"Vides"],["Vid Pinot Gris","4L",15660,"Vides"],
+  ["Vid Torrontés","4L",15660,"Vides"]
+];
+
+// [nombre, descripción] — sin precio fijo, se cotizan por WhatsApp
+const SERVICIOS = [
+  ["Diseño de jardín","Visita, relevamiento y plano de plantación con especies y cantidades."],
+  ["Mantenimiento integral","Visitas periódicas: corte, limpieza, riego y abonado."],
+  ["Poda y limpieza","Poda de formación y sanitaria de árboles, arbustos y cercos."],
+  ["Asesoramiento en tu jardín","Visita para recomendar especies, ubicación y cuidados."],
+  ["Plantación y colocación","Preparamos el suelo y plantamos lo que compres en la tienda."]
+];
+const CANTEROS = [
+  ["Cantero mariposero","Flores y aromáticas que atraen mariposas, abejas y picaflores."],
+  ["Cantero elevado de madera","Estructura de madera a medida, ideal para huerta o aromáticas."],
+  ["Cantero para mate","Peperina, poleo, menta, cedrón y burrito para tu mate de cada día."],
+  ["Cantero de bordura para piletas","Especies prolijas, sin espinas y que no ensucian el agua."]
+];
+const NATIVOS = [
+  ["Tala","Celtis tala · copa densa, refugio de aves."],
+  ["Molle de beber","Lithraea molleoides · siempreverde de sombra liviana."],
+  ["Espinillo","Vachellia caven · flor amarilla perfumada a fin de invierno."],
+  ["Chañar","Geoffroea decorticans · corteza verde y flores amarillas."],
+  ["Algarrobo blanco","Neltuma alba · gran sombra, tolera la sequía."]
+];
+const PASTOS = [
+  ["Flechilla fina","Nassella tenuissima · penachos dorados que se mueven con el viento."],
+  ["Festuca serrana","Festuca hieronymi · matas rústicas del pastizal de altura."],
+  ["Gramíneas ornamentales","Varias especies para dar movimiento y textura."]
+];
+const FLORES = [
+  ["Agapanto","Agapanthus africanus · floración azul en verano."],
+  ["Dietes","Dietes bicolor · flor tipo iris, rústica y perenne."],
+  ["Erigeron","Erigeron karvinskianus · margaritas diminutas para bordes."],
+  ["Lavanda","Lavandula angustifolia · aroma y flor lila, imán de polinizadores."]
+];
+const ARBUSTOS = [
+  ["Santolina","Santolina chamaecyparissus · follaje plateado en forma de bola."],
+  ["Lino de Nueva Zelanda","Phormium tenax 'Purpureum' · hojas bordó, punto focal."],
+  ["Romero","Rosmarinus officinalis · aromático y resistente a la sequía."],
+  ["Peperina","Minthostachys verticillata · la aromática de las sierras."],
+  ["Poleo","Lippia turbinata · nativo, flores blancas muy melíferas."]
+];
+const CERCOS = [
+  ["Piquillín","Condalia microphylla · nativo, espinoso y con frutos comestibles."],
+  ["Eleagnus","Hojas plateadas, crece rápido y resiste el viento."],
+  ["Pittosporum","Follaje denso y prolijo, ideal para cercos formales."],
+  ["Photinia","Brotes rojos en primavera, cerco vistoso."],
+  ["Ligustrina","El clásico cerco de crecimiento rápido."]
+];
+
+const CATS = ["Servicios de jardinería","Canteros a pedido","Frutales","Árboles nativos","Pastos","Flores","Arbustos","Plantas para cercos"];
+const catalog = [];
+const addItems = (cat, rows) => rows.forEach(([name, desc]) => catalog.push({cat, name, desc, size: "", price: null}));
+addItems(CATS[0], SERVICIOS);
+addItems(CATS[1], CANTEROS);
+FRUTALES.forEach(([name, size, price, sub]) => catalog.push({cat: CATS[2], name, desc: sub, size, price}));
+addItems(CATS[3], NATIVOS);
+addItems(CATS[4], PASTOS);
+addItems(CATS[5], FLORES);
+addItems(CATS[6], ARBUSTOS);
+addItems(CATS[7], CERCOS);
+catalog.forEach(p => p.key = `${p.cat}|${p.name}|${p.size}`);
+const byKey = Object.fromEntries(catalog.map(p => [p.key, p]));
+
+const $ = s => document.querySelector(s);
+const fmt = n => "$" + n.toLocaleString("es-AR");
+const waLink = t => `https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+// Carrito: { key: cantidad }, recordado en este navegador
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem("nebai-cart")) || {}; } catch {}
+for (const k in cart) if (!byKey[k]) delete cart[k];
+const saveCart = () => { try { localStorage.setItem("nebai-cart", JSON.stringify(cart)); } catch {} };
+
+let cur = "Todos";
+const expanded = new Set();
+$("#cats").innerHTML = ["Todos", ...CATS].map(c => `<button class="filter${c === cur ? " on" : ""}" data-c="${c}">${c}</button>`).join("");
+$("#cats").addEventListener("click", e => {
+  const b = e.target.closest(".filter"); if (!b) return;
+  cur = b.dataset.c;
+  document.querySelectorAll("#cats .filter").forEach(x => x.classList.toggle("on", x === b));
+  renderShop();
+});
+$("#q").addEventListener("input", renderShop);
+
+const control = p => cart[p.key]
+  ? `<div class="qty"><button data-dec aria-label="Quitar uno">−</button><span>${cart[p.key]}</span><button data-inc aria-label="Agregar uno">+</button></div>`
+  : `<button class="add" data-inc>Agregar</button>`;
+
+function renderShop(){
+  const q = norm($("#q").value.trim());
+  const list = catalog.filter(p => (cur === "Todos" || p.cat === cur) && (!q || norm(`${p.name} ${p.desc} ${p.cat}`).includes(q)));
+  if (!list.length) {
+    $("#shop").innerHTML = `<p class="empty">No encontramos “${esc($("#q").value)}”. <a href="${waLink(`Hola Nebai! Estoy buscando: ${$("#q").value}`)}" target="_blank" rel="noopener">Consultame por WhatsApp</a> y lo conseguimos.</p>`;
+    return;
+  }
+  $("#shop").innerHTML = CATS.map(c => {
+    const items = list.filter(p => p.cat === c);
+    if (!items.length) return "";
+    const limit = cur === "Todos" && !q && !expanded.has(c) && items.length > 8;
+    const shown = limit ? items.slice(0, 8) : items;
+    return `<div class="group">
+      <div class="group-h"><h3>${c}</h3><span>${items.length} ${items.length === 1 ? "ítem" : "ítems"}</span></div>
+      <div class="prods">${shown.map(p => `
+        <article class="prod" data-key="${esc(p.key)}">
+          ${c === CATS[2] ? `<div class="k">${p.desc}</div>` : ""}
+          <h4>${esc(p.name)}${p.size ? ` <span class="sz">${p.size}</span>` : ""}</h4>
+          ${c === CATS[2] ? "" : `<p>${p.desc}</p>`}
+          <div class="buy">${p.price ? `<span class="price">${fmt(p.price)}</span>` : `<span class="price q">A consultar</span>`}${control(p)}</div>
+        </article>`).join("")}
+      </div>
+      ${limit ? `<button class="btn btn-ghost more" data-more="${c}">Ver los ${items.length} ${c.toLowerCase()}</button>` : ""}
+    </div>`;
+  }).join("");
+}
+
+function changeQty(key, d){
+  const n = (cart[key] || 0) + d;
+  if (n > 0) cart[key] = n; else delete cart[key];
+  saveCart();
+  renderShop();
+  renderCart();
+  if (d > 0) { const f = $("#cartBtn"); f.classList.remove("bump"); void f.offsetWidth; f.classList.add("bump"); }
+}
+
+$("#shop").addEventListener("click", e => {
+  const more = e.target.closest("[data-more]");
+  if (more) { expanded.add(more.dataset.more); renderShop(); return; }
+  const card = e.target.closest("[data-key]"); if (!card) return;
+  if (e.target.closest("[data-inc]")) changeQty(card.dataset.key, 1);
+  else if (e.target.closest("[data-dec]")) changeQty(card.dataset.key, -1);
+});
+
+function renderCart(){
+  const keys = Object.keys(cart);
+  const count = keys.reduce((s, k) => s + cart[k], 0);
+  const total = keys.reduce((s, k) => s + (byKey[k].price || 0) * cart[k], 0);
+  const toQuote = keys.some(k => !byKey[k].price);
+  $("#badge").hidden = !count;
+  $("#badge").textContent = count;
+  $("#total").textContent = !total && toQuote ? "A consultar" : fmt(total);
+  $("#tnote").hidden = !toQuote || !total;
+  $("#checkout").disabled = !count;
+  $("#dlist").innerHTML = keys.length ? keys.map(k => {
+    const p = byKey[k];
+    return `<div class="drow" data-key="${esc(k)}">
+      <div><b>${esc(p.name)}${p.size ? ` · ${p.size}` : ""}</b><small>${p.cat}${p.price ? ` · ${fmt(p.price)} c/u` : ""}</small></div>
+      <div class="st">${p.price ? fmt(p.price * cart[k]) : "A consultar"}</div>
+      <div class="qty"><button data-dec aria-label="Quitar uno">−</button><span>${cart[k]}</span><button data-inc aria-label="Agregar uno">+</button></div>
+    </div>`;
+  }).join("") : `<p class="dempty">Tu carrito está vacío.<br>Agregá plantas o servicios desde la tienda.</p>`;
+}
+
+$("#dlist").addEventListener("click", e => {
+  const row = e.target.closest("[data-key]"); if (!row) return;
+  if (e.target.closest("[data-inc]")) changeQty(row.dataset.key, 1);
+  else if (e.target.closest("[data-dec]")) changeQty(row.dataset.key, -1);
+});
+
+const drawer = $("#drawer"), scrim = $("#scrim");
+const openCart = open => {
+  drawer.classList.toggle("open", open);
+  scrim.classList.toggle("open", open);
+  drawer.setAttribute("aria-hidden", !open);
+};
+$("#cartBtn").addEventListener("click", () => openCart(true));
+$("#closeCart").addEventListener("click", () => openCart(false));
+scrim.addEventListener("click", () => openCart(false));
+addEventListener("keydown", e => { if (e.key === "Escape") openCart(false); });
+$("#clearCart").addEventListener("click", () => { cart = {}; saveCart(); renderShop(); renderCart(); });
+
+$("#checkout").addEventListener("click", () => {
+  const keys = Object.keys(cart); if (!keys.length) return;
+  const name = $("#c-name").value.trim(), loc = $("#c-loc").value.trim();
+  const total = keys.reduce((s, k) => s + (byKey[k].price || 0) * cart[k], 0);
+  const lines = keys.map(k => {
+    const p = byKey[k];
+    return `• ${cart[k]} × ${p.name}${p.size ? " " + p.size : ""} — ${p.price ? fmt(p.price * cart[k]) : "a consultar"}`;
+  });
+  const toQuote = keys.some(k => !byKey[k].price);
+  const txt = [
+    `Hola Nebai! ${name ? `Soy ${name}${loc ? ` de ${loc}` : ""}. ` : ""}Quiero hacer este pedido:`,
+    "", ...lines, "",
+    total ? `Total estimado: ${fmt(total)}${toQuote ? " + ítems a consultar" : ""}` : "Quedo a la espera del presupuesto."
+  ].join("\n");
+  window.open(waLink(txt), "_blank", "noopener");
+});
+
+renderShop();
+renderCart();
+
+// Mobile menu
+const burger = $(".burger"), menu = $("#menu");
+burger.addEventListener("click", () => {
+  const open = menu.classList.toggle("open");
+  burger.setAttribute("aria-expanded", open);
+});
+menu.addEventListener("click", e => { if (e.target.tagName === "A") { menu.classList.remove("open"); burger.setAttribute("aria-expanded", false); } });
+
+// Header border on scroll
+addEventListener("scroll", () => $("header").classList.toggle("scrolled", scrollY > 10), {passive: true});
+
+// Lightbox
+const lb = $("#lb"), lbImg = lb.querySelector("img");
+document.addEventListener("click", e => {
+  const el = e.target.closest("[data-full]"); if (!el) return;
+  e.preventDefault();
+  lbImg.src = el.dataset.full;
+  lbImg.alt = el.querySelector("img")?.alt || "Lista de precios de frutales";
+  lb.classList.add("open");
+});
+lb.addEventListener("click", e => { if (e.target !== lbImg) lb.classList.remove("open"); });
+addEventListener("keydown", e => { if (e.key === "Escape") lb.classList.remove("open"); });
+
+// Contact form → WhatsApp
+$("#form").addEventListener("submit", e => {
+  e.preventDefault();
+  const name = $("#f-name").value.trim(), loc = $("#f-loc").value.trim();
+  const txt = `Hola Nebai! Soy ${name}${loc ? ` de ${loc}` : ""}. Me interesa: ${$("#f-svc").value}.\n${$("#f-msg").value.trim()}`;
+  window.open(waLink(txt), "_blank", "noopener");
+});
+
+// Reveal on scroll
+const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), {threshold: .12});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+$("#y").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
